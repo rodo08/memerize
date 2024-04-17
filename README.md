@@ -1,8 +1,30 @@
-# React + Vite
+# Memerize
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Memerize is a simple memory matching game featuring meme images. Test your memory by flipping cards and finding their matching pairs!
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Demo
+-   Features
+-   Installation
+-   License
+
+## Demo
+
+[Link to Try Memerize](https://memerize.netlify.app/)
+
+## Features
+
+-   Memorable meme images to test your memory.
+-   Simple and intuitive user interface.
+-   Keeps track of turns taken during the game.
+-   Dynamic reactions to errors with different meme images.
+
+## Built with
+
+-   React.js
+-   CSS
+
+## License
+
+This project is licensed under the MIT License.
