@@ -1,6 +1,23 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "./App.css";
 import SingleCard from "./components/SingleCard";
+
+const imgReactions = [
+  { src: "/img/meme-reactions-01.jpg" },
+  { src: "/img/meme-reactions-02.jpg" },
+  { src: "/img/meme-reactions-03.jpg" },
+  { src: "/img/meme-reactions-04.jpg" },
+  { src: "/img/meme-reactions-05.jpg" },
+  { src: "/img/meme-reactions-06.jpg" },
+  { src: "/img/meme-reactions-07.jpg" },
+  { src: "/img/meme-reactions-08.jpg" },
+  { src: "/img/meme-reactions-09.jpg" },
+  { src: "/img/meme-reactions-10.jpg" },
+  { src: "/img/meme-reactions-11.jpg" },
+  { src: "/img/meme-reactions-12.jpg" },
+  { src: "/img/meme-reactions-13.jpg" },
+];
 
 const cardImages = [
   { src: "/img/leo-01.png", matched: false },
@@ -10,6 +27,8 @@ const cardImages = [
   { src: "/img/cat-01.png", matched: false },
   { src: "/img/behindtree-01.png", matched: false },
 ];
+
+let errors = 0;
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -28,6 +47,25 @@ function App() {
     setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
+    errors = 0;
+  };
+
+  const Header = () => {
+    const errorIndex = Math.min(errors, imgReactions.length - 1);
+    const reactionImage = imgReactions[errorIndex].src;
+
+    return (
+      <header className="reactions">
+        <div>
+          <h1>Memerize</h1>
+          <button onClick={shuffleCards}>New Game</button>
+          <p>Turns: {turns}</p>
+        </div>
+        <div>
+          <img src={reactionImage} alt="reaction image" />
+        </div>
+      </header>
+    );
   };
 
   //handle a choice
@@ -54,6 +92,7 @@ function App() {
 
         resetTurn();
       } else {
+        errors++;
         setTimeout(() => resetTurn(), 1000);
       }
     }
@@ -75,11 +114,8 @@ function App() {
 
   return (
     <div className="App">
-      <section>
-        <h1>Memerize</h1>
-        <button onClick={shuffleCards}>New Game</button>
-        <p>Turns: {turns}</p>
-      </section>
+      <Header />
+
       <div className="card-grid">
         {cards.map((card) => (
           <SingleCard
